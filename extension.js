@@ -92,12 +92,6 @@ class LogoMenuMenuButton extends PanelMenu.Button {
         if (showReturnToGamingMode)
             this._addItem(new MenuItem(_('Return to Gaming Mode'), () => this._returnToGamingMode()));
 
-        this._addItem(new PopupMenu.PopupSeparatorMenuItem());
-
-        this._addItem(new MenuItem(_('Mission Center'), () => this._openSystemMonitor()));
-        this._addItem(new MenuItem(_('Terminal'), () => this._openTerminal()));
-        if (showDistroShelf)
-            this._addItem(new MenuItem(_('DistroShelf'), () => this._openDistroShelf()));
 
         this._addItem(new PopupMenu.PopupSeparatorMenuItem());
 
@@ -108,6 +102,13 @@ class LogoMenuMenuButton extends PanelMenu.Button {
             this._addItem(new MenuItem(_('Warehouse'), () => this._openWarehouse()));
 
         this._addItem(new MenuItem(_('Extension Manager'), () => this._openExtensionsApp()));
+		
+        this._addItem(new PopupMenu.PopupSeparatorMenuItem());
+
+        this._addItem(new MenuItem(_('Mission Center'), () => this._openSystemMonitor()));
+        this._addItem(new MenuItem(_('Terminal'), () => this._openTerminal()));
+        if (showDistroShelf)
+            this._addItem(new MenuItem(_('DistroShelf'), () => this._openDistroShelf()));
 
         if (showForceQuit) {
             this._addItem(new PopupMenu.PopupSeparatorMenuItem());
