@@ -458,7 +458,7 @@ export const LogoMenuOptionsPage = GObject.registerClass(class LogoMenuOptionsWi
 
         // Toggle Lutris visibility
         const showLutrisRow = new Adw.ActionRow({
-            title: _('Show Lutris'),
+            title: _('Show Lutris option'),
         });
 
         const showLutrisSwitch = new Gtk.Switch({
@@ -474,7 +474,7 @@ export const LogoMenuOptionsPage = GObject.registerClass(class LogoMenuOptionsWi
 
         // Toggle Steam visibility
         const showSteamRow = new Adw.ActionRow({
-            title: _('Show Steam'),
+            title: _('Show Steam option'),
         });
 
         const showSteamSwitch = new Gtk.Switch({
