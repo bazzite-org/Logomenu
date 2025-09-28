@@ -63,6 +63,18 @@
       <description>Toggle return to gamemode visibility.</description>
     </key>
 
+    <key type="b" name="show-lutris">
+      <default>true</default>
+      <summary>Toggle Lutris visiblity</summary>
+      <description>Toggle Lutris visibility.</description>
+    </key>
+
+    <key type="b" name="show-steam">
+      <default>true</default>
+      <summary>Toggle Steam visiblity</summary>
+      <description>Toggle Steam visibility.</description>
+    </key>
+
     <key type="b" name="show-distroshelf">
       <default>false</default>
       <summary>Toggle DistroShelf option visibility</summary>

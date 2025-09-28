@@ -456,6 +456,39 @@ export const LogoMenuOptionsPage = GObject.registerClass(class LogoMenuOptionsWi
 
         iconShadowVisibilityRow.add_suffix(iconShadowRowVisiblitySwitch);
 
+        // Toggle Lutris visibility
+        const showLutrisRow = new Adw.ActionRow({
+            title: _('Show Lutris option'),
+        });
+
+        const showLutrisSwitch = new Gtk.Switch({
+            valign: Gtk.Align.CENTER,
+            active: this._settings.get_boolean('show-lutris'),
+        });
+
+        showLutrisSwitch.connect('notify::active', widget => {
+            this._settings.set_boolean('show-lutris', widget.get_active());
+        });
+
+        showLutrisRow.add_suffix(showLutrisSwitch);
+
+        // Toggle Steam visibility
+        const showSteamRow = new Adw.ActionRow({
+            title: _('Show Steam option'),
+        });
+
+        const showSteamSwitch = new Gtk.Switch({
+            valign: Gtk.Align.CENTER,
+            active: this._settings.get_boolean('show-steam'),
+        });
+
+        showSteamSwitch.connect('notify::active', widget => {
+            this._settings.set_boolean('show-steam', widget.get_active());
+        });
+
+        showSteamRow.add_suffix(showSteamSwitch);
+
+
         // Pref Group
         prefGroup1.add(menuButtonIconClickTypeRow);
         prefGroup1.add(extensionsAppRow);
@@ -468,6 +501,9 @@ export const LogoMenuOptionsPage = GObject.registerClass(class LogoMenuOptionsWi
         prefGroup2.add(forceQuitOptionrow);
         prefGroup2.add(lockScreenOptionRow);
         prefGroup2.add(softwareCentreOptionRow);
+        prefGroup2.add(showLutrisRow);
+        prefGroup2.add(showSteamRow);
+
 
         prefGroup3.add(activitiesButtonVisiblityRow);
         prefGroup3.add(iconShadowVisibilityRow);

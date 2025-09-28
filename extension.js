@@ -41,8 +41,9 @@ class LogoMenuMenuButton extends PanelMenu.Button {
         this._settings.connectObject('changed::use-custom-icon', () => this.setIconImage(), this);
         this._settings.connectObject('changed::custom-icon-path', () => this.setIconImage(), this);
         this._settings.connectObject('changed::menu-button-icon-size', () => this.setIconSize(), this);
+
 	
-	this.hideIconShadow();
+        this.hideIconShadow();
         this.setIconImage();
         this.setIconSize();
         this.add_child(this.icon);
@@ -56,6 +57,9 @@ class LogoMenuMenuButton extends PanelMenu.Button {
         this._settings.connectObject('changed::hide-forcequit', () => this._displayMenuItems(), this);
         this._settings.connectObject('changed::show-lockscreen', () => this._displayMenuItems(), this);
         this._settings.connectObject('changed::show-activities-button', () => this._displayMenuItems(), this);
+        this._settings.connectObject('changed::show-lutris', () => this._displayMenuItems(), this);
+        this._settings.connectObject('changed::show-steam', () => this._displayMenuItems(), this);
+
         this._displayMenuItems();
 
         // bind middle click option to toggle overview
@@ -75,6 +79,9 @@ class LogoMenuMenuButton extends PanelMenu.Button {
         const showSoftwareCenter = !this._settings.get_boolean('hide-softwarecentre');
         const showWarehouse = !this._settings.get_boolean('hide-warehouse');
         const showActivitiesButton = this._settings.get_boolean('show-activities-button');
+        const showLutris = this._settings.get_boolean('show-lutris');
+        const showSteam = this._settings.get_boolean('show-steam');
+
 
         this.menu.removeAll();
 
@@ -86,9 +93,12 @@ class LogoMenuMenuButton extends PanelMenu.Button {
 
         this._addItem(new MenuItem(_('App Grid'), () => this._showAppGrid()));
         this._addItem(new MenuItem(_('Files'), () => this._openNautilus()));
-        this._addItem(new PopupMenu.PopupSeparatorMenuItem());
-        this._addItem(new MenuItem(_('Steam'), () => this._openSteam()));
-        this._addItem(new MenuItem(_('Lutris'), () => this._openLutris()));
+        if (showSteam || showLutris || showReturnToGamingMode)
+            this._addItem(new PopupMenu.PopupSeparatorMenuItem());
+        if (showSteam)
+            this._addItem(new MenuItem(_('Steam'), () => this._openSteam()));
+        if (showLutris)
+            this._addItem(new MenuItem(_('Lutris'), () => this._openLutris()));
         if (showReturnToGamingMode)
             this._addItem(new MenuItem(_('Return to Gaming Mode'), () => this._returnToGamingMode()));
 
