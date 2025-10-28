@@ -28,7 +28,7 @@
     </key>
 
     <key type="s" name="menu-button-software-center">
-      <default>"/usr/bin/bazaar window --auto-service"</default>
+      <default>"/usr/bin/bazaar"</default>
       <summary>Menu Button Software Center</summary>
       <description>Change the Menu Button Software Center.</description>
     </key>
